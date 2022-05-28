@@ -1,9 +1,7 @@
 package com.mikkimesser.tests;
 
-import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 import com.mikkimesser.pages.RegistrationFormPage;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -13,15 +11,9 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class AutomationPracticeFormTests {
+public class AutomationPracticeFormTests extends TestBase {
 
     Faker faker = new Faker();
-
-    @BeforeAll static void setUp() {
-        Configuration.holdBrowserOpen = true;
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1280x720";
-    }
 
     @Test
     void fillFormTest() throws ParseException {
@@ -68,7 +60,7 @@ public class AutomationPracticeFormTests {
                 gender,
                 subject,
                 hobby
-                );
+        );
 
         //checking the results
         registrationFormPage.checkRegistrationResults(firstName,
