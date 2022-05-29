@@ -1,7 +1,10 @@
 package com.mikkimesser.tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import com.mikkimesser.pages.RegistrationFormPage;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -15,8 +18,20 @@ public class AutomationPracticeFormTests extends TestBase {
 
     Faker faker = new Faker();
 
+    /*TODO
+    1. Добавить аллюр лисенер+
+    2. Добавить степы+
+    3. Добавить методы для сохранения консоли, скриншота и кода+
+    4. Прогнать локально, убедиться, что всё работает+
+    5. Зарегистрировать на дженкинсе
+    6. Настроить сборку
+    7. Добавить ремоут для селеноида
+    8. Добавить метод для сохранения видео
+     */
     @Test
+    @DisplayName("Тест формы регистрации на demoqa")
     void fillFormTest() throws ParseException {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         //initializing test data
         String firstName = faker.name().firstName();
         String lastName = faker.name().lastName();

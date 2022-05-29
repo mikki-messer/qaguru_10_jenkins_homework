@@ -3,6 +3,7 @@ package com.mikkimesser.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.mikkimesser.pages.components.CalendarComponent;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -36,6 +37,7 @@ public class RegistrationFormPage {
     String registrationFormHeader = "Student Registration Form";
     String resultsFormHeader = "Thanks for submitting the form";
     //actions
+    @Step("Открываем страницу")
     public void openPage(){
         open(pageUrl);
         registrationFormDiv.shouldHave(text(registrationFormHeader));
@@ -110,12 +112,12 @@ public class RegistrationFormPage {
         resultsTable.$(byText(key))
                 .parent().shouldHave(text(value));
     }
-
+    @Step("Закрываем модальное окно с результатами и проверяем, что оно закрылось")
     public void closeResultsTable(){
         closeModalWindowButton.click();
         modalWindowDiv.shouldNotBe(Condition.visible);
     }
-
+    @Step("Заполняем форму")
     public void registerNewUser(String _firstName,
                                 String _lastName,
                                 String _email,
@@ -150,7 +152,7 @@ public class RegistrationFormPage {
         selectCity(_city);
         submitForm();
     }
-
+    @Step("Проверяем корректность сохранённых данных")
     public void checkRegistrationResults(String _firstName,
                                          String _lastName,
                                          String _email,
