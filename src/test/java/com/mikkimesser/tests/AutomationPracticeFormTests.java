@@ -5,6 +5,7 @@ import com.github.javafaker.Faker;
 import com.mikkimesser.pages.RegistrationFormPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.text.ParseException;
@@ -13,20 +14,20 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-
+@Tag("demoqa_registration_form")
 public class AutomationPracticeFormTests extends TestBase {
 
     Faker faker = new Faker();
 
-    /*TODO
+    /* Plan
     1. Добавить аллюр лисенер+
     2. Добавить степы+
     3. Добавить методы для сохранения консоли, скриншота и кода+
     4. Прогнать локально, убедиться, что всё работает+
     5. Зарегистрировать на дженкинсе+
-    6. Настроить сборку
-    7. Добавить ремоут для селеноида
-    8. Добавить метод для сохранения видео
+    6. Настроить сборку+
+    7. Добавить ремоут для селеноида+
+    8. Добавить метод для сохранения видео+
      */
     @Test
     @DisplayName("Тест формы регистрации на demoqa")

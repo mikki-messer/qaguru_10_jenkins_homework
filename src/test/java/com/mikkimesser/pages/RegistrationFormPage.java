@@ -2,6 +2,7 @@ package com.mikkimesser.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.mikkimesser.helpers.Attach;
 import com.mikkimesser.pages.components.CalendarComponent;
 import io.qameta.allure.Step;
 
@@ -100,6 +101,7 @@ public class RegistrationFormPage {
     }
 
     public  void submitForm(){
+        Attach.screenshotAs("Filled_form");
         submitButton.click();
     }
     public void checkResultsTableShown() {
@@ -169,7 +171,7 @@ public class RegistrationFormPage {
                                          String _hobby) {
         //Asserting the results table is shown
         checkResultsTableShown();
-
+        Attach.screenshotAs("Results_table");
         //Asserting the field values
         checkResult("Student Name",
                 String.format("%s %s", _firstName, _lastName));

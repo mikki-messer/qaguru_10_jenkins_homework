@@ -33,3 +33,10 @@ allure{
 test {
     useJUnitPlatform()
 }
+
+//run only tests/classes marked with the tag
+task demoqa_regform_test(type: Test){
+    useJUnitPlatform{
+        includeTags "demoqa_registration_form"
+    }
+}

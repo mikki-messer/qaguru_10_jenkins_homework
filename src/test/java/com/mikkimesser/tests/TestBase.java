@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -21,6 +22,11 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1280x720";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
     }
 
     @AfterEach
@@ -37,7 +43,7 @@ public class TestBase {
         Attach.screenshotAs(screenshotName);
         Attach.pageSource();
         Attach.browserConsoleLogs();
-        //Attach.addVideo();
+        Attach.addVideo();
         closeWebDriver();
     }
 }
