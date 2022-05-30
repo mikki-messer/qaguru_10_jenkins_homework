@@ -30,7 +30,7 @@ public class TestBase {
     }
 
     @AfterEach
-    @Step("Сохранение скриншотов и логов")
+    @Step("Сохранение скриншота, видео, исходного кода и логов консоли")
     void addAttachments() {
         String screenshotName;                                // Returns a `String`.
         screenshotName = String.format("Screnshot %s",ZonedDateTime                    // Represent a moment as perceived in the wall-clock time used by the people of a particular region ( a time zone).
